@@ -13,6 +13,7 @@ session_start();
 </head>
 
 <body class="bg-dark text-light">
+    <h1 class="text-center">Récapitulatifs des produits</h1>
     <?php
     if (!isset($_SESSION['products']) || empty($_SESSION['products'])) {
         echo "<p>Aucun produit en session...</p>";
