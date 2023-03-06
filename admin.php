@@ -10,7 +10,7 @@
 
 <body class="bg-dark text-light">
     <div class="container mt-5">
-        <h2 class="text-center">Ajouter un produit</h2>
+        <h2 class="text-center">Ajouter un produit</h2><br><br><br>
 
         <form action="traitement.php?action=ajouter" method="post">
             <div class="row">
@@ -32,6 +32,7 @@
             </div>
         </form>
         <a href="recap.php" class="btn btn-secondary d-block p-2 mt-3">Panier</a>
+        <a href="index.php" class="btn btn-secondary d-block p-2 mt-3">Index BD</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
