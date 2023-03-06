@@ -56,7 +56,7 @@ session_start();
             <a href="traitement.php?action=viderPanier" class="btn btn-secondary d-block p-2 mt-3">vider panier</a>
         </div>
         <div class="col">
-            <a href="index.php" class="btn btn-secondary d-block p-2 mt-3">Acceuil</a>
+            <a href="admin.php" class="btn btn-secondary d-block p-2 mt-3">Acceuil</a>
         </div>
     </div>
 

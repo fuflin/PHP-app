@@ -24,7 +24,7 @@ if (isset($_GET['action'])) {
                     ];
 
                     $_SESSION['products'][] = $product;
-                    header("Location:index.php");
+                    header("Location:admin.php");
                 }
             }
             break; // fin de cette condition du switch
