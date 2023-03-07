@@ -1,7 +1,7 @@
 <?php
 
 session_start(); // démarrage de la session
-require "db-function.php";
+// require "db-function.php";
 
 // s'il y a le mot action dans l'URL 
 if (isset($_GET['action'])) {

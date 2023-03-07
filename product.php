@@ -27,9 +27,9 @@ $product = findOneById($id); // déclaration variable pour utilisé la fonction 
         <h1 class="text-center">Liste des Produits</h1>
         <h2 class="text-center"><?php echo $product['name']; ?></h2>
         <p class="text-center"><?php echo $product['description']; ?></p>
-        <p class="text-center">Prix: $<?php echo number_format($product['price'], 2); ?></p>
+        <p class="text-center">Prix: <?php echo number_format($product['price'], 2); ?>€</p>
 
-        <form action="traitement.php?action=ajouter" method="post">
+        <form action="traitement.php?action=ajouter" method="get">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <button type="submit" name="submit">Ajouter au panier</button>
         </form>

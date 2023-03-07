@@ -3,11 +3,11 @@
 function connexion() // fonction créer pour se connecter à la base de donnée 
 {
 
-    $dB = "mysql:host=localhost;dbname=store";
+    $data = "mysql:host=localhost;dbname=store";
     $user = "root";
     $pass = "";
 
-    $pdo = new PDO($dB, $user, $pass, array(
+    $pdo = new PDO($data, $user, $pass, array(
         \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION, // option précisant le type d'erreur en cas de requête invalide
         \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC, // option définissant le mode de récupération de la BD, ici les données seront sous forme de tableau associatif (FETCH_ASSOC)
         \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8" // option insérant une commande MySQL à l'instanciation de l'objet PDO, dans ce cas on force la prise en charge de l'utf-8 
