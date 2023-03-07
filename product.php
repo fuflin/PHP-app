@@ -21,13 +21,11 @@ $product = findOneById($id); // déclaration variable pour utilisé la fonction 
 
 <body class="bg-dark text-light">
     <div class="container">
-        <div class="col">
-            <a href="admin.php" class="btn btn-secondary d-block p-2 mt-3">Acceuil</a>
-        </div>
+
         <h1 class="text-center">Liste des Produits</h1>
-        <h2 class="text-center"><?php echo $product['name']; ?></h2>
-        <p class="text-center"><?php echo $product['description']; ?></p>
-        <p class="text-center">Prix: <?php echo number_format($product['price'], 2); ?>€</p>
+        <h2 class="text-center mt-5"><?php echo $product['name']; ?></h2>
+        <p class="text-center mt-5"><?php echo $product['description']; ?></p>
+        <p class="text-center mt-5">Prix: <?php echo number_format($product['price'], 2); ?>€</p>
 
         <form action="traitement.php?action=ajouter" method="get">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
