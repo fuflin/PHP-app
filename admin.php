@@ -8,29 +8,36 @@
     <title>Ajout produit</title>
 </head>
 
+<!-- Titre du site -->
+
 <body class="bg-dark text-light">
     <div class="container mt-5">
         <h2 class="text-center">Ajouter un produit</h2><br><br><br>
 
         <form action="traitement.php?action=ajouter" method="post">
             <div class="row">
+                <!-- champ pour le nom du produit -->
                 <div class="col">
                     <label for="name" class="form-label">Nom du produit :</label>
                     <input type="text" class="form-control" name="name">
                 </div>
+                <!-- champ pour le prix du produit -->
                 <div class="col">
                     <label for="price" class="form-label">Prix du produit :</label>
                     <input type="text" class="form-control" step="any" name="price">
                 </div>
+                <!-- champ pour la quantité du produit -->
                 <div class="col">
                     <label for="qtt" class="form-label">Quantité desirée :</label>
                     <input type="number" class="form-control" name="qtt" value="1">
                 </div>
             </div>
+            <!-- bouton pour ajouter le produit saisie -->
             <div class="d-grid gap-2 mt-3">
                 <input type="submit" class="btn btn-secondary" name="submit" value="Ajouter le produit">
             </div>
         </form>
+        <!-- bouton annexe -->
         <a href="recap.php" class="btn btn-secondary d-block p-2 mt-3">Panier</a>
         <a href="index.php" class="btn btn-secondary d-block p-2 mt-3">Index BD</a>
     </div>

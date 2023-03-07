@@ -20,7 +20,7 @@ $products = findAll();
 
 <body class="bg-dark text-light">
     <h1 class="text-center">Produits enregistrés</h1>
-
+    <!-- tableau des produits de la base de donnée -->
     <div class="container mt-5">
         <?php
         echo "<table class='table table-dark table-striped text-center'>";
@@ -35,6 +35,7 @@ $products = findAll();
         }
         echo "</table>";
         ?>
+        <!-- bouton retour à la page admin -->
         <div class="col">
             <a href="admin.php" class="btn btn-secondary d-block p-2 mt-3">Acceuil</a>
         </div>

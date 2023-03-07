@@ -14,13 +14,6 @@ function connexion() // fonction créer pour se connecter à la base de donnée
     ));
 
     return $pdo;
-    // try {
-    //     $pdo = new PDO($dB, $user, $pass);
-    //     echo "Connexion établie";
-    // } catch (PDOException $pe) {
-    //     echo "Erreur : " . $pe->getMessage();
-    // }
-    // return $pdo;
 }
 
 function findAll() // fonction pour affiché tous les éléments de la base de donnée
@@ -29,7 +22,7 @@ function findAll() // fonction pour affiché tous les éléments de la base de d
     // déclaration variable pour appelé la fonction de manière ponctuelle
     $state = $dB->query("SELECT id, name, description, price FROM product");
     // variable requête SQL, query = prépare et exécute la requête
-    return $state->fetchAll(); // 
+    return $state->fetchAll(); // récupère un tableau de produit
 }
 
 function findOneById($id) // fonction pour affiché un produit par rapport à l'id
@@ -39,7 +32,7 @@ function findOneById($id) // fonction pour affiché un produit par rapport à l'
     // prepare = préparation de la requête qu'on stocke pour l'utilisé plus tard
     $state->execute(["id" => $id]); // on définit l'id par rapport à la variable $id
     // execute = execution de la requête stocké
-    return $state;
+    return $state->fetch(); // récupère un élément
 }
 
 function insertProduct($name, $descr, $price) //fonction pour insérer des produits dans la BD avec nom, description et prix

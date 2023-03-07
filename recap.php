@@ -13,6 +13,7 @@ session_start();
 </head>
 
 <body class="bg-dark text-light">
+    <!-- affichage du tableau des produits saisie -->
     <div class="container">
         <h1 class="text-center">Récapitulatifs des produits</h1>
         <?php
@@ -41,10 +42,10 @@ session_start();
                 "<td>" . '<a href="traitement.php?action=decreaseQuantity&id=' . $index . '" class="btn btn-outline-danger">-</a> ' . $product['qtt'] . ' <a href="traitement.php?action=increaseQuantity&id=' . $index . '" class="btn btn-outline-success">+</a>' . "</td>", //récupération de la quantité
                 "<td>" . number_format($product['total'], 2, ",", "&nbsp;") . "&nbsp;€</td>", //Calcul du total
                 "<td> <a href='traitement.php?action=supprimerProduit&id=$index' class='btn btn-danger'>retirer produit</a></td>",
-                "</tr>";
+                "</tr>"; // bouton pour retirer un produit du panier
                 $totalGeneral += $product['total'];
             }
-            echo "<tr>",
+            echo "<tr>", // affichage du total des produits
             "<td colspan=4>Total général : </td>",
             "<td><srtong>" . number_format($totalGeneral, 2, ",", "&nbsp;") . "&nbsp;€</strong></td>",
             "</tbody>",
@@ -52,9 +53,11 @@ session_start();
         }
 
         ?>
+        <!-- bouton pour vider enitèrement le panier -->
         <div class="col">
             <a href="traitement.php?action=viderPanier" class="btn btn-secondary d-block p-2 mt-3">vider panier</a>
         </div>
+        <!-- bouton annexe -->
         <div class="col">
             <a href="admin.php" class="btn btn-secondary d-block p-2 mt-3">Acceuil</a>
         </div>
