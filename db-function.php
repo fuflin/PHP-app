@@ -46,5 +46,6 @@ function insertProduct($name, $descr, $price) //fonction pour insérer des produ
         "price" => $price
     ]);
     // execution des éléments à inséré avec leurs variables correspondantes
-    return $stmt;
+    return $dB->lastInsertId();
+    // fonction PDO permettant de récupérer l'id du dernier élément ajouter
 }
