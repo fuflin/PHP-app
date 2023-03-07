@@ -1,7 +1,7 @@
 <?php
 
 require "db-function.php";
-require "traitement.php";
+
 
 $products = findAll();
 
@@ -19,26 +19,28 @@ $products = findAll();
 </head>
 
 <body class="bg-dark text-light">
-    <h1 class="text-center">Produits enregistrés</h1>
-    <!-- tableau des produits de la base de donnée -->
     <div class="container mt-5">
+        <!-- bouton retour à la page admin et recap -->
+        <div class="d-flex">
+            <a href="admin.php" class="btn btn-secondary d-block">Admin</a>
+            <a href="recap.php" class="btn btn-secondary d-block ms-3">Recap</a>
+        </div>
+        <h2 class="text-center mt-5">Produits enregistrés</h2>
+        <!-- tableau des produits de la base de donnée -->
         <?php
-        echo "<table class='table table-dark table-striped text-center'>";
+        echo "<table class='table table-dark table-striped text-center mt-5'>";
         echo "<tr><th>Name</th><th>Description</th><th>Price</th><th></th></tr>";
         foreach ($products as $product) {
             echo "<tr>";
             echo "<td><a class='btn btn-info' href='product.php?id=" . $product['id'] . "'>" . $product['name'] . "</a></td>";
             echo "<td>" . substr($product['description'], 0, 50) . "...</td>";
             echo "<td>" . $product['price'] . " EUR</td>";
-            echo "<td><a class='btn btn-warning' href='recap.php?id=" . $product['id'] . "'>Ajouter Produit</a></td>";
+            echo "<td><a class='btn btn-warning' href='traitement.php?action=ajoutPanier&id=" . $product['id'] . "'>Ajouter Produit</a></td>";
             echo "</tr>";
         }
         echo "</table>";
         ?>
-        <!-- bouton retour à la page admin -->
-        <div class="col">
-            <a href="admin.php" class="btn btn-secondary d-block p-2 mt-3">Acceuil</a>
-        </div>
+
     </div>
 
 

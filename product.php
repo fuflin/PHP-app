@@ -1,7 +1,7 @@
 <?php
 
 require "db-function.php";
-require "traitement.php";
+
 
 $id = $_GET["id"]; // on récupère les id depuis la session
 
@@ -22,17 +22,15 @@ $product = findOneById($id); // déclaration variable pour utilisé la fonction 
 <body class="bg-dark text-light">
     <div class="container">
 
-        <h1 class="text-center">Liste des Produits</h1>
-        <h2 class="text-center mt-5"><?php echo $product['name']; ?></h2>
-        <p class="text-center mt-5"><?php echo $product['description']; ?></p>
-        <p class="text-center mt-5">Prix: <?php echo number_format($product['price'], 2); ?>€</p>
+        <h2 class="text-center mt-5">Liste des Produits</h2>
+        <div class="d-flex flex-column align-items-center">
+            <h3 class="text-center mt-5"><?php echo $product['name']; ?></h3>
+            <p class="text-justify w-50 mt-5 "><?php echo $product['description']; ?></p>
+            <p class="text-center mt-5">Prix: <?php echo number_format($product['price'], 2); ?>€</p>
+            <a href="traitement.php?action=ajoutPanier&id=<?= $product['id']; ?>" class="btn btn-primary w-25">Ajouter au panier</a>
+            <a href="index.php" class="btn btn-secondary p-2 mt-3 w-50">Retour</a>
+        </div>
 
-        <form action="traitement.php?action=ajouter" method="get">
-            <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <button type="submit" class="btn btn-primary" name="submit">Ajouter au panier</button>
-        </form>
-
-        <a href="index.php" class="btn btn-secondary d-block p-2 mt-3">Retour</a>
     </div>
 
 

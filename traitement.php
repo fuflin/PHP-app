@@ -1,31 +1,55 @@
 <?php
 
 session_start(); // démarrage de la session
-// require "db-function.php";
+require "db-function.php";
+
 
 // s'il y a le mot action dans l'URL 
 if (isset($_GET['action'])) {
 
     // nous allons switcher entre différentes actions possible
     switch ($_GET['action']) {
-        case "ajouter": // fonction pour ajouter un produit
-            if (isset($_POST['submit'])) {
+        case "ajoutbdd": // ajout produit dans la base de donnée
+            if (isset($_POST['submit'])) { // ajout de filtre pour les champs
+                $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT);
+                $descr = filter_input(INPUT_POST, "descr", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-                $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS); //
-                $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION); //
-                $qtt = filter_input(INPUT_POST, "qtt", FILTER_VALIDATE_INT); // 
+                if ($name && $price && $descr) { // condition
 
-                if ($name && $price && $qtt) {
-
-                    $product = [
+                    $ajout = [
                         "name" => $name,
                         "price" => $price,
+                        "descr" => $descr
+                    ];
+
+                    $id = insertProduct($ajout['name'], $ajout['descr'], $ajout['price']);
+                    header("Location:product.php?id=" . $id);
+                } else {
+                    header("Location:recap.php");
+                }
+            }
+
+            break;
+
+        case "ajoutPanier": // fonction pour ajouter un produit
+            if (isset($_GET['id'])) {
+
+                $id = filter_var($_GET['id'], FILTER_VALIDATE_INT); //
+                $item = findOneById($id);
+                $qtt = 1;
+
+                if ($id) {
+
+                    $product = [
+                        "name" => $item['name'],
+                        "price" => $item['price'],
                         "qtt" => $qtt,
-                        "total" => $price * $qtt
+                        "total" => $item['price'] * $qtt
                     ];
 
                     $_SESSION['products'][] = $product;
-                    header("Location:admin.php");
+                    header("Location:recap.php");
                 }
             }
             break; // fin de cette condition du switch
