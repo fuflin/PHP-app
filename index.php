@@ -24,13 +24,13 @@ $products = findAll();
     <div class="container mt-5">
         <?php
         echo "<table class='table table-dark table-striped text-center'>";
-        echo "<tr><th>Name</th><th>Description</th><th>Price</th><th>Action</th></tr>";
+        echo "<tr><th>Name</th><th>Description</th><th>Price</th><th></th></tr>";
         foreach ($products as $product) {
             echo "<tr>";
-            echo "<td><a href='product.php?id=" . $product['id'] . "'>" . $product['name'] . "</a></td>";
+            echo "<td><a class='btn btn-info' href='product.php?id=" . $product['id'] . "'>" . $product['name'] . "</a></td>";
             echo "<td>" . substr($product['description'], 0, 50) . "...</td>";
             echo "<td>" . $product['price'] . " EUR</td>";
-            echo "<td><a href='recap.php?id=" . $product['id'] . "'>Ajouter Produit</a></td>";
+            echo "<td><a class='btn btn-warning' href='recap.php?id=" . $product['id'] . "'>Ajouter Produit</a></td>";
             echo "</tr>";
         }
         echo "</table>";

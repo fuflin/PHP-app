@@ -29,7 +29,7 @@ $product = findOneById($id); // déclaration variable pour utilisé la fonction 
 
         <form action="traitement.php?action=ajouter" method="get">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <button type="submit" name="submit">Ajouter au panier</button>
+            <button type="submit" class="btn btn-primary" name="submit">Ajouter au panier</button>
         </form>
 
         <a href="index.php" class="btn btn-secondary d-block p-2 mt-3">Retour</a>
