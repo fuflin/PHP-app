@@ -1,0 +1,22 @@
+
+-> injection sql = un groupe de méthodes d'exploitation de faille de sécurité d'une application interagissant avec une base de données. 
+                  Elle permet d'injecter dans la requête SQL en cours un morceau de requête non prévu par le système et pouvant en compromettre la sécurité.
+
+-> requete préparée = La base de données MySQL supporte les requêtes préparées. Une requête préparée ou requête paramétrable est utilisée pour exécuter 
+                      la même requête plusieurs fois, avec une grande efficacité et protège des injections SQL.
+
+-> faille xss = Les failles XSS font partie de la catégorie des vulnérabilités par injection de code au même titre que les injections SQL. 
+                Cependant pour découvrir et exploiter une faille XSS, il s'agit pour un attaquant d'injecter du code malveillant via les paramètres d'entrée côté client.
+
+-> session = Les sessions sont un moyen simple de stocker des données individuelles pour chaque utilisateur en utilisant un identifiant de session unique. 
+             Elles peuvent être utilisées pour faire persister des informations entre plusieurs pages. Les sessions peuvent être démarrées manuellement en utilisant la fonction session_start(). Les sessions s'arrêtent automatiquement lorsque PHP a terminé d'exécuter un script ou lorsqu'on ferme la page.
+
+-> superglobales = Certaines variables prédéfinies en PHP sont des "superglobales", ce qui signifie qu'elles sont toujours accessibles, quelle que soit leur portée 
+                   et vous pouvez y accéder depuis n'importe quelle fonction, classe ou fichier sans avoir à faire quoi que ce soit de spécial.
+
+                        $_GET => est une super variable globale PHP qui est utilisée pour collecter des données de formulaire après avoir soumis un formulaire HTML avec method="get".
+                            $_GET peut également collecter des données envoyées dans l'URL.
+
+                        $_POST => est une super globale PHP qui est utilisée pour collecter des données de formulaire après avoir soumis un formulaire HTML avec method="post".  
+                            $_POST est également utilisé pour passer des variables.
+
