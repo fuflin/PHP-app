@@ -32,12 +32,12 @@ function findOneById($id) // fonction pour affiché un produit par rapport à l'
     // prepare = préparation de la requête qu'on stocke pour l'utilisé plus tard
     $state->execute(["id" => $id]); // on définit l'id par rapport à la variable $id
     // execute = execution de la requête stocké
-    return $state->fetch(); // récupère un élément
+    return $state->fetch(); // récupère une ligne 
 }
 
 function insertProduct($name, $descr, $price) //fonction pour insérer des produits dans la BD avec nom, description et prix
 {
-    $dB = connexion();
+    $db = connexion();
     $stmt = $dB->prepare("INSERT INTO product (name, description, price) VALUES (:name, :descr, :price)");
     // requête stocké avec les éléments à insérer
     $stmt->execute([
@@ -46,6 +46,8 @@ function insertProduct($name, $descr, $price) //fonction pour insérer des produ
         "price" => $price
     ]);
     // execution des éléments à inséré avec leurs variables correspondantes
-    return $dB->lastInsertId();
+    return $db->lastInsertId();
     // fonction PDO permettant de récupérer l'id du dernier élément ajouter
 }
+?>
+
