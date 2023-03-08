@@ -15,7 +15,7 @@ if (isset($_GET['action'])) {
                 $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT);
                 $descr = filter_input(INPUT_POST, "descr", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-                if ($name && $price && $descr) { // condition
+                if ($name && $price && $descr) { // condition 
 
                     $ajout = [
                         "name" => $name,
@@ -23,14 +23,14 @@ if (isset($_GET['action'])) {
                         "descr" => $descr
                     ];
 
-                    $id = insertProduct($ajout['name'], $ajout['descr'], $ajout['price']);
+                    $id = insertProduct($ajout['name'], $ajout['descr'], $ajout['price']); // initialisation de la fonction
                     header("Location:product.php?id=" . $id);
                 } else {
                     header("Location:recap.php");
                 }
             }
 
-            break;
+            break; // fin de ce switch case
 
         case "ajoutPanier": // fonction pour ajouter un produit
             if (isset($_GET['id'])) {
@@ -97,3 +97,4 @@ if (isset($_GET['action'])) {
             break;
     }
 }
+?>
